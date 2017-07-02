@@ -21,8 +21,9 @@ class ViewController: UIViewController {
     @IBAction func appendDigit(_ sender: UIButton) {
         let digit = sender.currentTitle
         
-        debugPrint("digit = \(String(describing: digit))")
-        debugPrint("digit = \(digit!)")
+//        debugPrint("digit = \(String(describing: digit))")
+//        debugPrint("digit = \(digit!)")
+//        debugPrint("userIsInTheMiddleOfTypingANumber = \(userIsInTheMiddleOfTypingANumber)")
         
         if userIsInTheMiddleOfTypingANumber {
             display.text = display.text! + digit!
@@ -118,12 +119,15 @@ class ViewController: UIViewController {
     var operandStack = Array<Double>()
 */
     @IBAction func enter() {
-        userIsInTheMiddleOfTypingANumber = false
+        
         if let result = brain.pushOperand(operand: displayValue){
             displayValue = result
         } else {
             displayValue = 0
         }
+        
+        userIsInTheMiddleOfTypingANumber = false
+
 /*
         operandStack.append(displayValue)
         print("operandStack = \(operandStack)")
